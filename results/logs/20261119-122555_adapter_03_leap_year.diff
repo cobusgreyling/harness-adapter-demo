@@ -1,0 +1,13 @@
+diff -ru -x opencode.json -x __pycache__ -x .pytest_cache -x .opencode /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.4vtLZpYSuv.orig/calendar_utils.py /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.4vtLZpYSuv/calendar_utils.py
+--- /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.4vtLZpYSuv.orig/calendar_utils.py	2026-11-19 12:25:55
++++ /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.4vtLZpYSuv/calendar_utils.py	2026-11-19 12:29:43
+@@ -1,5 +1,9 @@
+ def is_leap_year(year):
+     """Gregorian rule: every 4th year, except centuries, except every 400th."""
++    if year % 400 == 0:
++        return True
++    if year % 100 == 0:
++        return False
+     return year % 4 == 0
+ 
+ 

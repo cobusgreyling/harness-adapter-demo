@@ -1,0 +1,11 @@
+diff -ru -x opencode.json -x __pycache__ -x .pytest_cache -x .opencode /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.m28q7cS6up.orig/slug.py /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.m28q7cS6up/slug.py
+--- /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.m28q7cS6up.orig/slug.py	2026-11-19 12:57:15
++++ /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.m28q7cS6up/slug.py	2026-11-19 13:00:51
+@@ -9,5 +9,5 @@
+     result never starts or ends with a hyphen.
+     """
+     text = text.lower()
+-    text = re.sub(r"[^a-z0-9]", "-", text)
+-    return text
++    text = re.sub(r"[^a-z0-9]+", "-", text)
++    return text.strip("-")

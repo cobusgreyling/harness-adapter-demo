@@ -1,0 +1,8 @@
+done adapter 01_moving_average
+done adapter 02_slugify
+done adapter 04_orders_multifile
+done base 03_leap_year
+done base 01_moving_average
+done base 02_slugify
+done base 04_orders_multifile
+ALLDONE

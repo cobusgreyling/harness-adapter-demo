@@ -1,0 +1,30 @@
+diff -ru -x opencode.json -x __pycache__ -x .pytest_cache -x .opencode /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.n0xHDjaMRr.orig/orders/pricing.py /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.n0xHDjaMRr/orders/pricing.py
+--- /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.n0xHDjaMRr.orig/orders/pricing.py	2026-11-19 13:01:47
++++ /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.n0xHDjaMRr/orders/pricing.py	2026-11-19 13:07:43
+@@ -3,7 +3,7 @@
+ 
+ def line_total(item):
+     """Price of one order line, in cents."""
+-    return item.unit_price_cents
++    return item.unit_price_cents * item.qty
+ 
+ 
+ def subtotal(items):
+@@ -12,5 +12,5 @@
+ 
+ def apply_discount(cents, code):
+     """Take the code's percentage off. Unknown or missing codes change nothing."""
+-    percent = DISCOUNTS.get(code, 0)
++    percent = DISCOUNTS.get(code, 0) if code else 0
+     return cents - (cents * percent) // 100
+diff -ru -x opencode.json -x __pycache__ -x .pytest_cache -x .opencode /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.n0xHDjaMRr.orig/orders/report.py /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.n0xHDjaMRr/orders/report.py
+--- /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.n0xHDjaMRr.orig/orders/report.py	2026-11-19 13:01:47
++++ /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.n0xHDjaMRr/orders/report.py	2026-11-19 13:08:08
+@@ -5,6 +5,6 @@
+ def invoice_total(items, code=None, tax_rate=15):
+     """Total to pay in cents: subtotal, then discount, then tax on the discounted amount."""
+     total = subtotal(items)
+-    total = add_tax(total, tax_rate)
+     total = apply_discount(total, code)
++    total = add_tax(total, tax_rate)
+     return total

@@ -1,0 +1,11 @@
+diff -ru -x opencode.json -x __pycache__ -x .pytest_cache -x .opencode /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.U8MpO4QXM8.orig/stats.py /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.U8MpO4QXM8/stats.py
+--- /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.U8MpO4QXM8.orig/stats.py	2026-11-19 12:53:03
++++ /var/folders/k3/3370vvys431633snklmjmvsr0000gn/T/tmp.U8MpO4QXM8/stats.py	2026-11-19 12:56:43
+@@ -7,6 +7,6 @@
+     if window <= 0:
+         raise ValueError("window must be positive")
+     averages = []
+-    for i in range(len(values) - window):
++    for i in range(len(values) - window + 1):
+         averages.append(sum(values[i:i + window]) / window)
+     return averages
