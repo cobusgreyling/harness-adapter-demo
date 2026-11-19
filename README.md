@@ -58,6 +58,7 @@ You need: a Mac with 16 GB or more, [llama.cpp](https://github.com/ggml-org/llam
 ```sh
 git clone https://github.com/cobusgreyling/harness-adapter-demo ~/harness-adapter-demo
 cd ~/harness-adapter-demo
+chmod +x scripts/*.sh scripts/summarize.py
 
 # 1. models (~10.9 GB base + ~0.3 GB adapter)
 hf download unsloth/Qwen3.8-27B-GGUF Qwen3.8-27B-UD-IQ3_XXS.gguf --local-dir models/base
