@@ -131,7 +131,7 @@ The raw data is in `results/results.jsonl`. For every run, `results/logs/` has t
 - It is **not a benchmark**. n=1 per cell, four toy tasks, no repeats, so the timing gap on task 04 could be noise.
 - It says nothing about the 51.0% vs 35.3% SWE-bench Pro result. Different tasks, different scale, different precision.
 - The adapter was trained and evaluated at BF16 under vLLM. I ran a 3-bit base through llama.cpp, and Hugging Face has not re-evaluated the GGUF adapter. A quantized base may well move the results.
-- Tasks this easy are where an adapter has the least to add. One independent test of the pi adapter on an M5 Pro also reported no gain on easy tasks.
+- Tasks this easy are where an adapter has the least to add.
 - I only tested the OpenCode adapter inside OpenCode. I did not test it in another harness, so I can't say whether the gains carry over. HF trained it for one harness, which is the point of the whole exercise.
 
 **The takeaway**
