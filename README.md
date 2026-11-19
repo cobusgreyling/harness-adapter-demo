@@ -34,6 +34,7 @@ Their scores come from the **BF16** adapter served by vLLM, under the OpenCode h
 
 - The adapter was trained and evaluated at **BF16**. I run a **3-bit** base (unsloth `UD-IQ3_XXS`) so it fits in 16 GB. The card itself says a quantized base "will move the results further", and it suggests Q8_0 as the default, with Q4_K_M as a smaller option that drifts further. 3-bit is smaller than both.
 - The GGUF adapter has not been re-evaluated through llama.cpp, per the card.
+- Even the harness version differs. Hugging Face trained and evaluated with OpenCode 2.2.7 (`@opencode/cli`); my MacBook run used OpenCode 1.19.3. Which itself illustrates the point: the adapter belongs to a model + harness pair, and a different harness version is already a different pair.
 - I have four tasks. Three are tiny, one touches several files. One run per task per mode. That shows what happened on my machine on that day, nothing more.
 - Do not compare my pass/fail table with the numbers above. Different tasks, different precision, different scale.
 - Thinking is off for both models (`enable_thinking: false`), as in the adapter's training and evaluation.
